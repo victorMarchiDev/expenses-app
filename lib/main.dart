@@ -22,6 +22,12 @@ class MyHomePage extends StatelessWidget {
       value: 310.76,
       date: DateTime.now(),
     ),
+    Transaction(
+      id: 't2',
+      title: 'Conta de Luz',
+      value: 211.30,
+      date: DateTime.now(),
+    ),
   ];
 
   @override
@@ -39,7 +45,11 @@ class MyHomePage extends StatelessWidget {
               color: Colors.blue,
             ),
           ),
-          Card(child: Text('Lista de Transações')),
+          Column(
+            children: _transactions.map((tr) {
+              return Card(child: Text(tr.title));
+            }).toList(),
+          ),
         ],
       ),
     );
